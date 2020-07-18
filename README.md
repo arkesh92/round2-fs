@@ -21,3 +21,8 @@ console.log(search2.autocomplete('achieve', 4));
     "k": 4
 }
 ```
+
+# TASK 3
+
+- folder: `spa/`
+- server: `http://localhost:3000`

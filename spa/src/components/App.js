@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        Search Books
+        Your personal book library
       </header>
       <Form />
       <List />
