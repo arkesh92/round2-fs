@@ -5,6 +5,13 @@ const fetch = require('node-fetch');
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 app.get('/data', (req, res) => {
   res.header("Content-Type",'application/json');
   res.send(JSON.stringify(Search.data, null, 4));
