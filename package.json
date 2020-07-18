@@ -1,0 +1,23 @@
+{
+  "name": "round2-fs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arkesh92/round2-fs.git"
+  },
+  "keywords": [],
+  "author": "Arkesh Jaiswal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arkesh92/round2-fs/issues"
+  },
+  "homepage": "https://github.com/arkesh92/round2-fs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -14,7 +14,7 @@ const Search = () => {
       if(index != -1) { // if query found in summary
         if(markVisit)
           visited[id] = true; // add entry in hashmap
-        let count = summary.split(query).length - 1; // frequency of query in summary
+        let count = summary.toLowerCase().split(query).length - 1; // frequency of query in summary
         // store frequency, position and boolean - if complete query found - for sorting later
         summaries.push({id, title: Search.data.titles[id], summary, count, index, prefer: markVisit});
       }
@@ -68,12 +68,11 @@ const Search = () => {
 Search.data = require('./data');
 // console.log(Search.data);
 
-const search1 = Search();
-console.log(search1.autocomplete('our behavior', 7));
-const search2 = Search();
-console.log(search2.autocomplete('achieve', 4));
-const search3 = Search();
-console.log(search2.autocomplete('your problem', 4));
-
+// const search1 = Search();
+// console.log(search1.autocomplete('our behavior', 7));
+// const search2 = Search();
+// console.log(search2.autocomplete('achieve', 4));
+// const search3 = Search();
+// console.log(search3.autocomplete('your problem', 4));
 
 module.exports = Search;
