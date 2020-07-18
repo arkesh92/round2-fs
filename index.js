@@ -9,6 +9,12 @@ app.get('/data', (req, res) => {
   res.send(JSON.stringify(Search.data, null, 4));
 });
 
+app.get('/', (req, res) => {
+  const search = Search();
+  res.header("Content-Type",'application/json');
+  res.send(JSON.stringify(search.autocomplete('your problem', 4), null, 4));
+});
+
 app.listen(8000, () =>
   console.log('Server listening...')
 );
