@@ -83,7 +83,8 @@ input[type='submit']:hover {
   max-width: calc(100% - 20px);
   text-align: center;
   padding: 10px;
-  height: 7.6rem;
+  height: 150px;
+  margin-bottom: 30px;
 }
 
 .content {
