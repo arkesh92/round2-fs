@@ -25,4 +25,4 @@ console.log(search2.autocomplete('achieve', 4));
 # TASK 3
 
 - folder: `spa/`
-- server: `http://localhost:3000`
+- server: `http://localhost:3000` or `https://fe.arkesh.repl.co`

@@ -6,13 +6,31 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {library: [
-      {title: 'HI', summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum nisl ex. Mauris semper eros vitae metus vehicula pulvinar. Duis tincidunt dignissim quam, sit amet faucibus risus eleifend tristique. Phasellus pulvinar sem laoreet tellus tempor pulvinar. Cras purus lacus, feugiat a mattis ut, feugiat sit amet leo. In non nisi sed nisl volutpat molestie ut in erat. Nulla facilisi. Mauris ac ante pulvinar, fermentum quam et, sodales massa. Aenean vel ullamcorper nisl. Donec dictum ex id fermentum elementum.", author: 'Arkesh Jaiswal'},
-      {title: 'Hello', summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum nisl ex. Mauris semper eros vitae metus vehicula pulvinar. Duis tincidunt dignissim quam, sit amet faucibus risus eleifend tristique. Phasellus pulvinar sem laoreet tellus tempor pulvinar. Cras purus lacus, feugiat a mattis ut, feugiat sit amet leo. In non nisi sed nisl volutpat molestie ut in erat. Nulla facilisi. Mauris ac ante pulvinar, fermentum quam et, sodales massa. Aenean vel ullamcorper nisl. Donec dictum ex id fermentum elementum.", author: 'Arkesh Jaiswal'},
-      {title: 'Hello', summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum nisl ex. Mauris semper eros vitae metus vehicula pulvinar. Duis tincidunt dignissim quam, sit amet faucibus risus eleifend tristique. Phasellus pulvinar sem laoreet tellus tempor pulvinar. Cras purus lacus, feugiat a mattis ut, feugiat sit amet leo. In non nisi sed nisl volutpat molestie ut in erat. Nulla facilisi. Mauris ac ante pulvinar, fermentum quam et, sodales massa. Aenean vel ullamcorper nisl. Donec dictum ex id fermentum elementum.", author: 'Arkesh Jaiswal'}
-    ]};
+      // {id: 0, title: 'HI', summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum nisl ex. Mauris semper eros vitae metus vehicula pulvinar. Duis tincidunt dignissim quam, sit amet faucibus risus eleifend tristique. Phasellus pulvinar sem laoreet tellus tempor pulvinar. Cras purus lacus, feugiat a mattis ut, feugiat sit amet leo. In non nisi sed nisl volutpat molestie ut in erat. Nulla facilisi. Mauris ac ante pulvinar, fermentum quam et, sodales massa. Aenean vel ullamcorper nisl. Donec dictum ex id fermentum elementum.", author: 'Arkesh Jaiswal'},
+      // {id: 2, title: 'Hello', summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum nisl ex. Mauris semper eros vitae metus vehicula pulvinar. Duis id: 2, ncidunt dignissim quam, sit amet faucibus risus eleifend tristique. Phasellus pulvinar sem laoreet tellus tempor pulvinar. Cras purus lacus, feugiat a mattis ut, feugiat sit amet leo. In non nisi sed nisl volutpat molestie ut in erat. Nulla facilisi. Mauris ac ante pulvinar, fermentum quam et, sodales massa. Aenean vel ullamcorper nisl. Donec dictum ex id fermentum elementum.", author: 'Arkesh Jaiswal'},
+      // {id: 3, title: 'Hello', summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum nisl ex. Mauris semper eros vitae metus vehicula pulvinar. Duis tincidunt dignissim quam, sit amet faucibus risus eleifend tristique. Phasellus pulvinar sem laoreet tellus tempor pulvinar. Cras purus lacus, feugiat a mattis ut, feugiat sit amet leo. In non nisi sed nisl volutpat molestie ut in erat. Nulla facilisi. Mauris ac ante pulvinar, fermentum quam et, sodales massa. Aenean vel ullamcorper nisl. Donec dictum ex id fermentum elementum.", author: 'Arkesh Jaiswal'}
+    ], selected: {}};
 
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if(Object.keys(this.state.selected).length) {
+      let book = {...this.state.selected};
+      this.setState({
+        library: [...this.state.library, book],
+        selected: {}
+      });
+    }
+  }
+
+  handleSelect(book) {
+    // console.log(book);
+    this.setState({
+      selected: book
+    });
   }
 
   render() { 
@@ -21,7 +39,7 @@ class App extends React.Component {
         <header className="header">
           Your personal book library
         </header>
-        <Form />
+        <Form handleSelect={this.handleSelect} handleSubmit={this.handleSubmit} />
         <List library={this.state.library} />
       </div>
     );
