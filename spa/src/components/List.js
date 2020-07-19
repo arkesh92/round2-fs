@@ -1,23 +1,26 @@
 import React from 'react';
 
-function List() {
+function List(props) {
+  console.log(JSON.stringify(props));
+  let list;
+  if (props.library.length) {
+    list = props.library.map(item =>
+      <div className="list-item">
+        <div className="content">
+          <div className="content-title">{item.title}</div>
+          <div className="content-summary">{item.summary}</div>
+          <div className="content-author">— {item.author}</div>
+        </div>
+      </div>
+    )
+  }
+  else {
+    list=<h4>No books in your collection</h4>;
+  }
+
   return (
     <div className="list">
-      <div className="list-item">
-        <div className="content">
-          desjdnsviwvbewwe b wuiguwbuvb whubqrb vu rhhuw gh rwhu hu 3y g8 g8g8
-        </div>
-      </div>
-      <div className="list-item">
-        <div className="content">
-          desjdnsviwvbewwe b wuiguwbuvb whubqrb vu rhhuw gh rwhu hu 3y g8 g8g8
-        </div>
-      </div>
-      <div className="list-item">
-        <div className="content">
-          desjdnsviwvbewwe b wuiguwbuvb whubqrb vu rhhuw gh rwhu hu 3y g8 g8g8
-        </div>
-      </div>
+      {list}
     </div>
   );
 }
