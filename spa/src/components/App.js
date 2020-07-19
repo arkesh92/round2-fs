@@ -19,10 +19,23 @@ class App extends React.Component {
     event.preventDefault();
     if(Object.keys(this.state.selected).length) {
       let book = {...this.state.selected};
-      this.setState({
-        library: [...this.state.library, book],
-        selected: {}
-      });
+      let found = false;
+      for(let item of this.state.library) {
+        if (item.id == book.id)
+          found = true;
+      }
+      if (!found) {
+        this.setState({
+          library: [...this.state.library, book],
+          selected: {}
+        });
+      }
+      else {
+        alert("Book already in collection");
+        this.setState({
+          selected: {}
+        });
+      }
     }
   }
 
