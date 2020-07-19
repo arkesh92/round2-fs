@@ -46,7 +46,7 @@ class Form extends React.Component {
     if(this.state.fetching)
       dropdown = <ul className="dropdown"><li className="disabled">Loading...</li></ul>
     else if(this.state.autocomplete.length)
-      dropdown = <ul className="dropdown">{this.state.autocomplete.map(item => <li>{item}</li>)}</ul>;
+      dropdown = <ul className="dropdown">{this.state.autocomplete.map((item, i) => <li key={i}>{item}</li>)}</ul>;
     else if(this.state.query.length >= 3)
       dropdown = <ul className="dropdown"><li className="disabled">No suggestions</li></ul>;
     return (
